@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   @override
   Widget build(BuildContext context) {
@@ -93,33 +92,54 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 12,),
+                SizedBox(
+                  height: 12,
+                ),
                 Row(
-
                   children: [
-                    Text('Top Picks For You', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                    Text(
+                      'Top Picks For You',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
                   ],
                 ),
-                SizedBox(height: 12,),
+                SizedBox(
+                  height: 12,
+                ),
                 TopPicks(),
                 Row(
-
                   children: [
-                    Text("Today's Special", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                    Text(
+                      "Today's Special",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
                   ],
                 ),
-                SizedBox(height: 12,),
+                SizedBox(
+                  height: 12,
+                ),
                 TodaysSpecial(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                   children: [
-                    Text('Categories', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
-                    TextButton(onPressed: () {},
-                        child: Text ('View All', style: TextStyle(fontSize: 12, color: Colors.black),))
+                    Text(
+                      'Categories',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'View All',
+                          style: TextStyle(fontSize: 12, color: Colors.black),
+                        ))
                   ],
-                                ),
-                SizedBox(height: 12,),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 25),
                   child: Categories(),
@@ -131,7 +151,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 
   Widget TopPicks() {
     List TopPicksImg = [top1, top2, top3, top4];
@@ -147,7 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
               TopPicksImg[index],
               width: 100, // Adjust the width as needed
               height: 100, // Adjust the height as needed
-
             ),
           );
         },
@@ -155,27 +173,32 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget TodaysSpecial(){
+  Widget TodaysSpecial() {
     return Container(
-    height: 200, width: double.infinity,
-      decoration: BoxDecoration(color: const Color(0xffF9DBE4),borderRadius: BorderRadius.circular(18)),
+      height: 200,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color: const Color(0xffF9DBE4),
+          borderRadius: BorderRadius.circular(18)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-           
-                height: 200,width: 200,
-                child: Image.asset('assets/SpecialText.png',fit: BoxFit.contain,)),
+                height: 150,
+                width: 150,
+                child: Image.asset(
+                  'assets/SpecialText.png',
+                  fit: BoxFit.contain,
+                )),
             Image.asset('assets/Cupcakes.png'),
           ],
         ),
       ),
     );
-
-
   }
+
   Widget Categories() {
     List CategoryImg = [cake1, cake2, cake3, cake4, cake5, cake6, cake7, cake8];
     return Container(
@@ -189,11 +212,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         itemCount: CategoryImg.length,
         itemBuilder: (BuildContext context, int index) {
-          return Image.asset(CategoryImg[index],);
+          return Image.asset(
+            CategoryImg[index],
+          );
         },
       ),
     );
   }
-
-
 }

@@ -24,9 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController phoneController = TextEditingController();
 
   bool _isGmail(String email) {
-    return 
-      email.endsWith('@gmail.com');
-
+    return email.endsWith('@gmail.com');
   }
 
   validateAndsave() async {
@@ -53,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   children: [
                     Container(
-                      height: size.height / 2,
+                      height: size.height / 3,
                       width: double.infinity,
                       decoration: BoxDecoration(color: Color(0xff6E2816)),
                       child: Padding(
@@ -260,7 +258,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               }
 
                                               // Use a more lenient regex to check for a valid email format
-                                              if (!RegExp(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$").hasMatch(authResult)) {
+                                              if (!RegExp(
+                                                      r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
+                                                  .hasMatch(authResult)) {
                                                 return 'Please enter a valid email';
                                               }
 
