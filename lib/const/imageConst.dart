@@ -16,4 +16,11 @@ const bakery = 'assets/Bakery.png';
 const categories = 'assets/Brezel.png';
 const orders = 'assets/Breakfast.png';
 const profile = 'assets/User.png';
+const frame1 = 'assets/Frame6.png';
+const frame2 = 'assets/Frame7.png';
+const frame3 = 'assets/Frame8.png';
+const frame4 = 'assets/Frame9.png';
+const frame5 = 'assets/Frame10.png';
+const frame6 = 'assets/Frame11.png';
+const order = 'assets/order1.png';
 
