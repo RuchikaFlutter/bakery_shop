@@ -9,120 +9,142 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
+  List<Color> buttonColor = [
+    Colors.grey,
+    Colors.grey,
+    Colors.grey,
+  ];
+  List<Color> buttonTextColor = [Colors.white, Colors.white, Colors.white];
+
+  List _text = ['250g', '500g', '1kg'];
+
+  void changecolor(int index) {
+    setState(() {
+      for (int i = 0; i < buttonColor.length; i++) {
+        if (i == index) {
+          buttonColor[i] = Colors.black;
+          buttonTextColor[i] = Colors.brown; // Change text color to black
+        } else {
+          buttonColor[i] = Colors.grey;
+          buttonTextColor[i] = Colors.white; // Reset other text colors to white
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xffFFF5F2),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: size.height / 1.5,
-              width: size.width,
-              child: Image.asset(
-                order,
-                fit: BoxFit.fill,
-                scale: 2.5,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Row(
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  Text(
-                    'Description',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                  SizedBox(
+                    width: size.width,
+                    child: Image.asset(
+                      order,
+                      fit: BoxFit.fill,
+                      scale: 2.5,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Description',
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Text(
+                      'A cappuccino is a coffee-based drink made primarily from espresso and milk . . . Read more',
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Center(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: List.generate(
+                          3,
+                          (index) => GestureDetector(
+                            onTap: () => changecolor(index),
+                            child: Container(
+                              width: size.width / 4,
+                              height: 50,
+                              margin: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                color: buttonColor[index],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  _text[index],
+                                  style: TextStyle(
+                                      color: buttonTextColor[index],
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
-            Row(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 100, left: 12, right: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                          text:
-                          '''A cappuccino is a coffee-based drink made primarily from espresso and milk''',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        TextSpan(
-                          text: ". . .Read more",
-                          style: TextStyle(
-                            color: Colors.deepOrangeAccent,
-                            fontSize: 16,
-                          ),
-                        )
-                      ]),
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color(0xffB87651),
+                  ),
+                  width: size.width / 3,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'ADD TO CART',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color(0xffB87651),
+                  ),
+                  width: size.width / 3,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'BUY NOW',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             ),
-
-            weight(),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-              Container(width: 100,height: 50,
-                decoration: BoxDecoration(
-
-                  color: Color(0xffB87651)
-                ),
-              ),
-                Container(height: size.height/2,
-                  decoration: BoxDecoration(
-
-                      color: Color(0xffB87651)
-                  ),
-                ),
-            ],)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget weight() {
-    List weight = ['250g', '500g', '1kg'];
-    double spacing = 10.0; // Adjust the spacing as needed
-    int selectedWeightIndex = 0;
-    return Container(
-      color: Colors.transparent,
-      height: 40,
-      width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(weight.length, (index) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedWeightIndex = index;
-                });
-              },
-              child: Container(
-
-                padding: EdgeInsets.symmetric(horizontal: spacing),
-                decoration: BoxDecoration(
-                  color: index == selectedWeightIndex ? Colors.black : Colors.blueGrey,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    weight[index],
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            );
-          }),
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:bakery_shop/const/imageConst.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({super.key});
+  const Categories({Key? key}) : super(key: key);
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -13,40 +13,49 @@ class _CategoriesState extends State<Categories> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 80),
-        child:   Scaffold(
-        backgroundColor: Color(0xffFFF5F2),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
+    return Scaffold(
+      backgroundColor: Color(0xffFFF5F2),
+      body: SafeArea(
+        child: Column(
+          children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(
                 children: [
-                  Text("Categeories", style: TextStyle(color: Color(0xff722F1E), fontSize: 22, fontWeight: FontWeight.bold),),
+                  Text(
+                    "Categories",
+                    style: TextStyle(
+                      color: Color(0xff722F1E),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ),
-                     ListView.builder(
-                         shrinkWrap: true,
-                                   itemCount: frames.length,
-                                   scrollDirection: Axis.vertical,
-                                   itemBuilder: (BuildContext context, int index) {
-                                   return Padding(
-                                     padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 20),
-                                     child: Image.asset(frames[
-                      index
-                                     ],scale:1 ,),
-                                   );
-                                 },
-            
-                                 ),
-              ],
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 50),
+                  child: Column(
+                    children: frames.map((frame) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 20),
+                        child: Container(
+                          height: 200, // Set the height as needed
+                          child: Image.asset(
+                            frame,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
             ),
-          ),
-      
+          ],
         ),
       ),
     );

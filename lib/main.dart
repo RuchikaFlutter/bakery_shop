@@ -1,7 +1,4 @@
-import 'package:bakery_shop/HomeScreen.dart';
-import 'package:bakery_shop/bakerypage.dart';
 import 'package:bakery_shop/bottom_bar.dart';
-import 'package:bakery_shop/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
