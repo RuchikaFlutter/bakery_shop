@@ -11,15 +11,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void initState(){
+  void initState() {
     super.initState();
     Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>
-      Bakerypage()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Bakerypage()));
     });
   }
-  @override
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff6E2816),
@@ -39,9 +39,9 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 // Logo Image
                 Image.asset(
-                  'assets/logo.png',
-                  width: 150,
-                  height: 150,
+                  'assets/Logo.png', // Replace with your logo image asset path
+                  width: 200,
+                  height: 200,
                 ),
               ],
             ),

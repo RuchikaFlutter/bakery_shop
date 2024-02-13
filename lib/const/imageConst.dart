@@ -1,4 +1,4 @@
-import'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 const top1 = 'assets/top1.png';
 const top2 = 'assets/top2.png';
@@ -23,4 +23,4 @@ const frame4 = 'assets/Frame9.png';
 const frame5 = 'assets/Frame10.png';
 const frame6 = 'assets/Frame11.png';
 const order = 'assets/order1.png';
-
+const imageProfile = 'assets/profile.png';

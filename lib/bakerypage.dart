@@ -1,3 +1,4 @@
+import 'package:bakery_shop/loginScreen.dart';
 import 'package:bakery_shop/signup_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -39,10 +40,8 @@ class _BakerypageState extends State<Bakerypage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegisterScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => loginScreen()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -69,7 +68,12 @@ class _BakerypageState extends State<Bakerypage> {
                 ),
                 // Password TextField
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterScreen()));
+                  },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Container(

@@ -1,4 +1,5 @@
 import 'package:bakery_shop/bottom_bar.dart';
+import 'package:bakery_shop/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(),
-      home: const bottom_bar(),
+      theme: ThemeData(useMaterial3: false),
+      home: const SplashScreen(),
     );
   }
 }
